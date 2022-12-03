@@ -1,5 +1,5 @@
-const { readFileSync } = require("fs");
-const path = require("path");
+const { readFileSync } = require("fs"),
+  path = require("path");
 
 try {
   const data = readFileSync(path.join(__dirname, "/input.txt"), "utf8")
@@ -7,16 +7,16 @@ try {
     .trim()
     .split("\n\n");
   console.log(
-    `The answser for the Part 1 is : ${Part1(getCaloriesByElves(data))}`
+    `The answser for the Part 1 is: ${Part1(getCaloriesByElves(data))}`
   );
   console.log(
-    `The answser for the Part 2 is : ${Part2(getCaloriesByElves(data))}`
+    `The answser for the Part 2 is: ${Part2(getCaloriesByElves(data))}`
   );
 } catch (err) {
   console.error(err);
 }
 
-//Main function for structuring the data
+//Main function to calculate the total number of calories possessed by each elf
 function getCaloriesByElves(arr) {
   const elves = arr.map((elf) => {
     let calories = elf.split("\n").map(Number);
